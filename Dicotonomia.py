@@ -10,7 +10,12 @@ def dicotonomia_recursiva (tabla, t):
         else:
             if tabla[m] < t:
             #Esto implica que tabla[m+1] ≤ t ≤ tabla[j] 
+            #Recursividad
                 return dicotonomia_recursiva (tabla[m+1:j], t)
             else:
             #Esto implica que tabla[i] ≤ t ≤ tabla[m–1] 
+            #Recursividad
                 return dicotonomia_recursiva (tabla[i:m-1], t)
+
+def dicotonomia (tabla, t):
+    return dicotonomia_recursiva (tabla, t)
