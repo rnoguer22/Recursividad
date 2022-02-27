@@ -9,18 +9,24 @@ class Bandera:
         g = []
         b = []
         #Añadimos un contador que nos ayudara a recorrer "bandera"
-        n = 0
-        if self.bandera[n] == "R":
-            r.append(self.bandera[n])
-            n += 1
-            self.ordenar_(self, n)
-        elif self.bandera[n] == "G":
-            g.append(self.bandera[n])
-            n += 1
-            self.ordenar_(self, n)
-        elif self.bandera[n] == "B":
-            b.append(self.bandera[n])
-            n += 1
-            self.ordenar_(self, n)
-        else:
+        if len(self.bandera) == n:
             return [r, g, b]
+        else:
+            if self.bandera[n] == "R":
+                r.append(self.bandera[n])
+                n += 1
+                self.ordenar_(n)
+            elif self.bandera[n] == "G":
+                g.append(self.bandera[n])
+                n += 1
+                self.ordenar_(n)
+            elif self.bandera[n] == "B":
+                b.append(self.bandera[n])
+                n += 1
+                self.ordenar_(n)
+
+if __name__ == "__main__":
+
+    bandera = ["B","G","G","R","G","R","B","B"]
+    bandera = Bandera(bandera)
+    print (bandera.ordenar_(n=0))
