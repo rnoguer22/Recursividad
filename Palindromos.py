@@ -5,7 +5,18 @@ class Palindromo:
     
     #Funcion para saber si un caracter es del alfabeto
     def es_alfabetico(self, car):
-        return car.isupper() or car.islower()
+        
+    #Funcion para pasar la frase a mayusculas y eliminar las tildes
+    def mayusculas_tildes (self):
+        self.frase.upper()
+        self.frase.replace(" ", "")
+        self.frase.replace("Á", "A")
+        self.frase.replace("É", "E")
+        self.frase.replace("Í", "I")
+        self.frase.replace("Ó", "O")
+        self.frase.replace("Ú", "U")
+        return self.frase
+
 
     def alfanumerico(self):
         if self.frase == False:
