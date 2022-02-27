@@ -1,32 +1,32 @@
 class Bandera:
     #Definimos el constructor
-    def __init__(self, bandera):
+    def __init__(self, bandera, r, g, b):
         self.bandera = bandera
+        self.r = r
+        self.g = g
+        self.b = b
     
     def ordenar_(self, n):
-        #Definimos las listas donde se almacenaran los colores de cada tipo
-        r = []
-        g = []
-        b = []
         #Añadimos un contador que nos ayudara a recorrer "bandera"
         if len(self.bandera) == n:
-            return [r, g, b]
+            resultado = self.r + self.g + self.b
+            return print ("La bandera ordenada quedaria asi: {}".format(resultado))
         else:
             if self.bandera[n] == "R":
-                r.append(self.bandera[n])
+                self.r.append("R")
                 n += 1
                 self.ordenar_(n)
             elif self.bandera[n] == "G":
-                g.append(self.bandera[n])
+                self.g.append(self.bandera[n])
                 n += 1
                 self.ordenar_(n)
             elif self.bandera[n] == "B":
-                b.append(self.bandera[n])
+                self.b.append(self.bandera[n])
                 n += 1
                 self.ordenar_(n)
 
 if __name__ == "__main__":
 
     bandera = ["B","G","G","R","G","R","B","B"]
-    bandera = Bandera(bandera)
-    print (bandera.ordenar_(n=0))
+    bandera = Bandera(bandera, r=[], g=[], b=[])
+    bandera.ordenar_(n=0)
