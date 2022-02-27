@@ -120,3 +120,5 @@ if __name__ == "__main__":
     bandera = Bandera(bandera, r=[], g=[], b=[])
     bandera.ordenar_(n=0)
 ```
+#### El UML de este ejercicio es el siguiente:
+![UML - Bandera Dijkstra drawio](https://user-images.githubusercontent.com/91721762/155902898-bc7a9dba-2036-46f1-998f-189687c46656.png)
