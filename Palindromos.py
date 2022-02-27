@@ -1,30 +1,35 @@
-class Palindromo:
-    #Definimos el constructor
-    def __init__(self, frase):
-        self.frase = frase
-            
-    #Funcion para pasar la frase a mayusculas y eliminar las tildes
-    def mayusculas_tildes (self):
-        self.frase.upper()
-        self.frase.replace(" ", "")
-        self.frase.replace("Á", "A")
-        self.frase.replace("É", "E")
-        self.frase.replace("Í", "I")
-        self.frase.replace("Ó", "O")
-        self.frase.replace("Ú", "U")
-        return self.frase
+#Funcion para pasar la frase a mayusculas y eliminar las tildes
+def mayusculas_tildes(frase):
+    #Hace la conversion si la frase es de tipo string
+    if str(frase):
+        frase = frase.upper()
+        frase = frase.replace(" ", "")
+        frase = frase.replace("Á", "A")
+        frase = frase.replace("É", "E")
+        frase = frase.replace("Í", "I")
+        frase = frase.replace("Ó", "O")
+        frase = frase.replace("Ú", "U")
+    #Si no, no se puede hacer la conversion
+    else:
+        pass
+    return frase
 
-    #Esta funcion devuelve un booleano que nos dice si es palindromo o no
-    def es_palindromo(self):
-        self.frase = list(self.frase)
-        if self.frase[0] == self.frase[-1]:
-            self.frase = self.frase[1:len(self.frase)]
-            return self.es_palindromo()
+#Esta funcion devuelve un booleano que nos dice si es palindromo o no
+def es_palindromo(frase):
+    frase = mayusculas_tildes(frase)
+    #Llegamos a que no nos quedan mas elementos, por lo tanto sera un palindromo
+    if len(frase) == 0:
+        return "Palindromo!"
+    else:
+        #Si el primer caracter coincide con el ultimo
+        if frase[0] == frase[-1]:
+            #Utilizamos recursividad
+            return es_palindromo(frase[1:-1])
         else:
-            return False
+            #Si en algun momento no coincide el primero con el ultimo, no es palindromo :(
+            return "No es palindromo :("
 
 if __name__ == '__main__':
 
-    oracion = input("Introduzca la frae a analizar: ")
-    resultado = Palindromo(oracion)
-    print(resultado.es_palindromo())
+    oracion = input("Introduzca una frase molona o un numero: ")
+    print (es_palindromo(oracion))
